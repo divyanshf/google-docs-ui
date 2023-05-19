@@ -1,5 +1,4 @@
 import React from "react";
-import { Avatar } from "@mui/material";
 
 interface AvatarProps {
     image?: string;
@@ -13,13 +12,11 @@ const Profile = ({ image, name }: AvatarProps) => {
     }, "");
 
     return (
-        <Avatar
+        <img
             src={image}
             alt={name}
-            sx={{ width: 24, height: 24, fontSize: 12 }}
-        >
-            {initials}
-        </Avatar>
+            style={{ width: 24, height: 24, fontSize: 12 }}
+        />
     );
 };
 

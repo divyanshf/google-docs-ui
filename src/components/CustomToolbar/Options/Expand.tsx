@@ -8,11 +8,9 @@ interface ExpandProps {
 const Expand = ({ icon }: ExpandProps) => {
     return (
         <>
-            <span className="material-symbols-outlined option-icon">
-                {icon}
-            </span>
-            <span className="material-symbols-outlined option-icon">
-                expand_more
+            <span className="material-symbols-outlined icon">{icon}</span>
+            <span className="material-symbols-outlined icon">
+                arrow_drop_down
             </span>
         </>
     );

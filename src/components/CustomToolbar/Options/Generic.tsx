@@ -7,7 +7,7 @@ interface GenericProps {
 
 const Generic = ({ icon }: GenericProps) => {
     return (
-        <span className="material-symbols-outlined option-icon">{icon}</span>
+        <span className="material-symbols-outlined icon">{icon}</span>
     );
 };
 

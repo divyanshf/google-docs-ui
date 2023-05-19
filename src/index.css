@@ -2,8 +2,12 @@ html {
     background-color: #f9fbfd;
 }
 
-body {
+* {
     margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: "Roboto";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -12,4 +16,9 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+button {
+    background-color: transparent;
+    border: none;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const DocumentTools = () => {
-    return <div>DocumentTools</div>;
+    return <></>;
 };
 
 export default DocumentTools;
