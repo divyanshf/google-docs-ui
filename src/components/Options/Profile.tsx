@@ -13,10 +13,11 @@ const Profile = ({ image, name }: AvatarProps) => {
 
     if (image)
         return (
-            <img
-                src={image}
-                alt={name}
-                style={{ width: 24, height: 24, fontSize: 12 }}
+            <div
+                className="profile-icon profile-icon-image"
+                style={{
+                    backgroundImage: `url(${image})`,
+                }}
             />
         );
 

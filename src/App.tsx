@@ -1,13 +1,14 @@
 import React from "react";
 import "./App.css";
 import "./Helper.css";
-import CustomToolbar from "./components/CustomToolbar/CustomToolbar";
+import MainComponent from "./components/MainComponent";
+import { TitleProvider } from "./contexts/TitleContext";
 
 function App() {
     return (
-        <div className="container">
-            <CustomToolbar />
-        </div>
+        <TitleProvider>
+            <MainComponent />
+        </TitleProvider>
     );
 }
 

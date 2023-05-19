@@ -9,10 +9,19 @@ interface OptionProps extends PropsWithChildren {
 }
 
 // Wrapper
-const OptionWrapper = ({ buttonClass, className, children }: OptionProps) => {
+const OptionWrapper = ({
+    title,
+    buttonClass,
+    className,
+    children,
+}: OptionProps) => {
     return (
         <div className={className}>
-            <button className={`icon-button ${buttonClass}`}>{children}</button>
+            <div className="tooltip" data-tip={title}>
+                <button className={`icon-button ${buttonClass}`}>
+                    {children}
+                </button>
+            </div>
         </div>
     );
 };

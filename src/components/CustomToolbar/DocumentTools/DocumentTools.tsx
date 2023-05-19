@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./DocumentTools.css";
 import Tools from "./Tools/Tools";
 import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
+import TitleContext from "../../../contexts/TitleContext";
 
 // Types
 interface DocumentToolsProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 // Document Related Tools
 const DocumentTools = (props: DocumentToolsProps) => {
-    const [title, setTitle] = useState("Untitled ");
+    const { title, updateTitleValue } = useContext(TitleContext);
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-        setTitle(e.target.value);
+        updateTitleValue(e.target.value);
 
     return (
         <div {...props}>
@@ -36,14 +37,25 @@ const DocumentTools = (props: DocumentToolsProps) => {
                     />
                 </div>
                 <div className="flex">
-                    <OptionWrapper title="Start">
-                        <Generic icon="star" iconSize={20} />
+                    <OptionWrapper
+                        title="Start"
+                        buttonClass="small-icon-button"
+                        className="mr-4 ml-4"
+                    >
+                        <Generic icon="star" iconSize={18} />
                     </OptionWrapper>
-                    <OptionWrapper title="Start">
-                        <Generic icon="star" iconSize={20} />
+                    <OptionWrapper
+                        title="Move"
+                        buttonClass="small-icon-button"
+                        className="mr-4"
+                    >
+                        <Generic icon="drive_file_move" iconSize={18} />
                     </OptionWrapper>
-                    <OptionWrapper title="Start">
-                        <Generic icon="star" iconSize={20} />
+                    <OptionWrapper
+                        title="See document status"
+                        buttonClass="small-icon-button"
+                    >
+                        <Generic icon="cloud_done" iconSize={18} />
                     </OptionWrapper>
                 </div>
             </div>

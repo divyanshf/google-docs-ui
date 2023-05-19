@@ -39,6 +39,10 @@ button:hover {
     border-radius: 50%;
 }
 
+.small-icon-button {
+    padding: 4px;
+}
+
 .expand-icon-button {
     display: flex;
     border-radius: 33px;
