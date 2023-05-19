@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Box } from "@mui/material";
+import CustomToolbar from "./components/CustomToolbar/CustomToolbar";
+import { createTheme, ThemeProvider, alpha } from "@mui/material/styles";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#C2E7FF",
+            },
+        },
+        components: {
+            MuiButtonBase: {
+                defaultProps: {
+                    disableRipple: true,
+                },
+            },
+            MuiIconButton: {
+                styleOverrides: {
+                    root: {
+                        color: "#444746",
+                        background: "transparent",
+                        "&:hover": {
+                            background: alpha("#444746", 0.1),
+                        },
+                    },
+                },
+            },
+        },
+    });
+    return (
+        <ThemeProvider theme={theme}>
+            <Box>
+                <CustomToolbar />
+            </Box>
+        </ThemeProvider>
+    );
 }
 
 export default App;
