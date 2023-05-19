@@ -1,0 +1,34 @@
+.drawer-container {
+    position: fixed;
+    right: 0;
+}
+
+.drawer {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(var(--background));
+    transition: 0.3s ease;
+}
+
+.drawer-opener {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    transition: 0.3s ease;
+}
+
+.drawer:is(.closed) {
+    right: -100%;
+}
+
+.google-product-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+}

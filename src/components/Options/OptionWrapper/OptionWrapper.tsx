@@ -6,6 +6,7 @@ interface OptionProps extends PropsWithChildren {
     background?: string; // color
     className?: string;
     buttonClass?: string;
+    onClick?: () => void;
 }
 
 // Wrapper
@@ -14,14 +15,17 @@ const OptionWrapper = ({
     buttonClass,
     className,
     children,
+    onClick,
 }: OptionProps) => {
     return (
         <div className={`${className} tooltip-parent`}>
-            <div className="tooltip" data-tip={title}>
-                <button className={`icon-button ${buttonClass}`}>
-                    {children}
-                </button>
-            </div>
+            <button
+                onClick={onClick}
+                className={`tooltip icon-button ${buttonClass}`}
+                data-tip={title}
+            >
+                {children}
+            </button>
         </div>
     );
 };

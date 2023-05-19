@@ -15,15 +15,16 @@ const CustomToolbar = () => {
                 <img
                     src="/images/brand.png"
                     alt="Google Docs Brand"
-                    className="brand mr-2"
+                    className="brand"
                     style={{
                         alignSelf: "center",
                     }}
                 />
+
                 {/* Document Related Tools */}
                 <DocumentTools className="document-tools-container mr-32" />
-                {/* Share and other options */}
 
+                {/* Share and other options */}
                 <div style={{ display: "flex" }}>
                     <OptionWrapper
                         title={"Last edit was 1 minute ago"}
