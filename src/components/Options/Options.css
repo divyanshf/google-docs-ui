@@ -1,0 +1,24 @@
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(var(--primary));
+    border-radius: 50%;
+}
+
+.share-icon {
+    background-color: rgb(var(--primary));
+}
+
+.share-icon .icon {
+    font-size: 20px;
+}
+
+.share-icon:hover {
+    background-color: rgb(var(--primary-dark));
+    box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.1),
+        -1px -1px 0 1px rgba(0, 0, 0, 0.1), 1px -1px 0 1px rgba(0, 0, 0, 0.1),
+        -1px 1px 0 1px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,43 @@
+.document-tools-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.document-tools button {
+    font-size: 13px;
+    color: rgb(var(--text-dark));
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.document-title {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.document-title-hidden {
+    visibility: hidden;
+}
+
+.document-title-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    outline-color: rgb(var(--blue));
+}
+
+.document-title-input:hover {
+    border: 1px solid rgb(var(--text-dark));
+}
+
+.document-title-input-and-hidden {
+    border: 1px solid transparent;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: rgb(var(--text-dark));
+}
