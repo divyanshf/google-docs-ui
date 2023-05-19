@@ -75,6 +75,43 @@ button:hover {
     width: 100%;
 }
 
+/* Tooltip */
+.tooltip-parent {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tip);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    color: white;
+    padding: 4px;
+    font-size: 10px;
+    border-radius: 4px;
+    transition: 0.3s ease-in;
+    z-index: 2;
+}
+
+.tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-parent:is(.anchor-right) > .tooltip::after {
+    left: -100%;
+}
+
+.tooltip-parent:is(.anchor-left) > .tooltip::after {
+    right: -100%;
+}
+
 /* Others */
 ::-webkit-scrollbar {
     width: 12px;

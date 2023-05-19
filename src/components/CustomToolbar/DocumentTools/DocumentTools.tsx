@@ -21,7 +21,6 @@ const DocumentTools = (props: DocumentToolsProps) => {
                 className="flex"
                 style={{
                     whiteSpace: "nowrap",
-                    overflow: "hidden",
                     alignItems: "center",
                 }}
             >
@@ -29,7 +28,6 @@ const DocumentTools = (props: DocumentToolsProps) => {
                     <span className="document-title-hidden document-title-input-and-hidden">
                         {title}
                     </span>
-                    {/* <br /> */}
                     <input
                         value={title}
                         onChange={handleTitleChange}
@@ -54,6 +52,7 @@ const DocumentTools = (props: DocumentToolsProps) => {
                     <OptionWrapper
                         title="See document status"
                         buttonClass="small-icon-button"
+                        className="anchor-right"
                     >
                         <Generic icon="cloud_done" iconSize={18} />
                     </OptionWrapper>

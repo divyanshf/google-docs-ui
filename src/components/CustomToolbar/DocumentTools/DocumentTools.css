@@ -1,6 +1,6 @@
 .document-tools-container {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .document-tools button {

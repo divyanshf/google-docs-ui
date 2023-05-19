@@ -16,7 +16,7 @@ const OptionWrapper = ({
     children,
 }: OptionProps) => {
     return (
-        <div className={className}>
+        <div className={`${className} tooltip-parent`}>
             <div className="tooltip" data-tip={title}>
                 <button className={`icon-button ${buttonClass}`}>
                     {children}
