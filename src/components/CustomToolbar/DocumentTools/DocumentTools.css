@@ -42,3 +42,7 @@
     font-size: 18px;
     color: rgb(var(--text-dark));
 }
+
+.document-tools {
+    overflow-x: auto;
+}
