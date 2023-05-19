@@ -11,12 +11,19 @@ const Profile = ({ image, name }: AvatarProps) => {
         return previous[0] + current[0];
     }, "");
 
+    if (image)
+        return (
+            <img
+                src={image}
+                alt={name}
+                style={{ width: 24, height: 24, fontSize: 12 }}
+            />
+        );
+
     return (
-        <img
-            src={image}
-            alt={name}
-            style={{ width: 24, height: 24, fontSize: 12 }}
-        />
+        <div className="profile-icon">
+            <p>{initials[0]}</p>
+        </div>
     );
 };
 
