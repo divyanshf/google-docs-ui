@@ -9,7 +9,7 @@ const MainComponent = () => {
     const { title } = useContext(TitleContext);
 
     useEffect(() => {
-        document.title = title ?? "React App";
+        document.title = title;
     }, [title]);
 
     return (
