@@ -1,4 +1,9 @@
 .edit-tools-container {
     width: 100%;
+    padding: 8px 16px;
+}
+.edit-tools {
+    padding: 8px;
+    border-radius: 33px;
     background-color: #ecf3fa;
 }

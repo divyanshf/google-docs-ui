@@ -32,6 +32,7 @@ const DocumentTools = (props: DocumentToolsProps) => {
                         value={title}
                         onChange={handleTitleChange}
                         className="document-title-input document-title-input-and-hidden"
+                        data-tip="Rename"
                     />
                 </div>
                 <div className="flex">

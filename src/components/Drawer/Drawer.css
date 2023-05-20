@@ -12,6 +12,9 @@
 }
 
 .drawer-opener {
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 .drawer:is(.closed) {

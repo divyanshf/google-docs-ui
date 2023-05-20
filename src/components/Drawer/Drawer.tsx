@@ -18,7 +18,7 @@ const Drawer = () => {
 
     return (
         <div className="drawer-container">
-            <div className={`drawer p-16 ${!isOpen ? "closed" : ""}`}>
+            <div className={`drawer p-8 ${!isOpen ? "closed" : ""}`}>
                 {otherProducts.map((product, idx) => (
                     <OptionWrapper title={product.title} key={idx}>
                         <img
