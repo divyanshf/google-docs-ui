@@ -9,6 +9,10 @@
     --text-disabled: 218, 220, 224;
 }
 
+.container {
+    overflow: auto;
+}
+
 html {
     background-color: rgb(var(--background));
     color: rgb(var(--text));
