@@ -4,11 +4,9 @@
 }
 
 .document-tools button {
-    font-size: 13px;
-    color: rgb(var(--text-dark));
-    padding: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    font-size: 14px;
+    color: rgb(var(--text));
+    padding: 2px 7px;
 }
 
 .document-title {
@@ -32,7 +30,7 @@
 }
 
 .document-title-input:hover {
-    border: 1px solid rgb(var(--text-dark));
+    border: 1px solid rgb(var(--text));
 }
 
 .document-title-input-and-hidden {
@@ -40,7 +38,7 @@
     padding: 1px 6px;
     border-radius: 4px;
     font-size: 18px;
-    color: rgb(var(--text-dark));
+    color: rgb(var(--text));
 }
 
 .document-tools {

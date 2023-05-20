@@ -18,7 +18,7 @@ const Drawer = () => {
 
     return (
         <div className="drawer-container">
-            <div className={`drawer p-8 ${!isOpen ? "closed" : ""}`}>
+            <div className={`drawer p-8 ${!isOpen ? "closed" : "opened"}`}>
                 {otherProducts.map((product, idx) => (
                     <OptionWrapper title={product.title} key={idx}>
                         <img
@@ -33,13 +33,13 @@ const Drawer = () => {
                     <Generic icon="add" />
                 </OptionWrapper>
             </div>
-            <div className="drawer-opener">
+            <div className={`drawer-opener ${!isOpen ? "closed" : "opened"}`}>
                 <OptionWrapper
                     title={isOpen ? "Hide side panel" : "Show side panel"}
                     onClick={toggleDrawer}
                     className="anchor-top anchor-right"
                 >
-                    <Generic icon={isOpen ? "chevron_right" : "chevron_left"} />
+                    <Generic icon="chevron_right" />
                 </OptionWrapper>
             </div>
         </div>

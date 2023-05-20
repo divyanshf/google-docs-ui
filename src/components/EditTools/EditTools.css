@@ -5,5 +5,5 @@
 .edit-tools {
     padding: 8px;
     border-radius: 33px;
-    background-color: #ecf3fa;
+    background-color: rgb(var(--edit-tools-background));
 }
