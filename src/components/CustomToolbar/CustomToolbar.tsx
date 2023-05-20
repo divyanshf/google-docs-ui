@@ -27,8 +27,6 @@ const CustomToolbar = () => {
                 {/* Document Related Tools */}
                 <DocumentTools className="document-tools-container mr-32" />
 
-                <div className="full-width" />
-
                 {/* Share and other options */}
                 <div style={{ display: "flex" }}>
                     <OptionWrapper

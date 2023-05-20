@@ -18,7 +18,7 @@ const OptionWrapper = ({
     onClick,
 }: OptionProps) => {
     return (
-        <div className={`${className} tooltip-parent`}>
+        <div className={`${className} tooltip-parent anchor-center`}>
             <button
                 onClick={onClick}
                 className={`tooltip icon-button ${buttonClass}`}

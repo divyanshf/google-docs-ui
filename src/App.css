@@ -112,26 +112,25 @@ button:hover {
 /* Tooltip */
 .tooltip-parent {
     position: relative;
+    display: inline-block;
 }
 
 .tooltip::after {
     content: attr(data-tip);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
     visibility: hidden;
     opacity: 0;
+    transition: 0.3s ease;
+    font-size: 12px;
+    height: min-content;
     position: absolute;
     bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.8);
-    white-space: nowrap;
-    color: white;
-    padding: 4px;
-    font-size: 10px;
-    border-radius: 4px;
-    transition: 0.3s ease-in;
-    height: fit-content;
-    z-index: 10;
+    z-index: 100;
 }
 
 .tooltip:hover::after {
@@ -139,15 +138,20 @@ button:hover {
     opacity: 1;
 }
 
-.tooltip-parent:is(.anchor-right) > .tooltip::after {
+.tooltip-parent:is(.anchor-center) .tooltip::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-parent:is(.anchor-right) .tooltip::after {
     left: 0;
 }
 
-.tooltip-parent:is(.anchor-left) > .tooltip::after {
+.tooltip-parent:is(.anchor-left) .tooltip::after {
     right: 0;
 }
 
-.tooltip-parent:is(.anchor-top) > .tooltip::after {
+.tooltip-parent:is(.anchor-top) .tooltip::after {
     top: -20px;
 }
 

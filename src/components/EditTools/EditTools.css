@@ -2,8 +2,17 @@
     width: 100%;
     padding: 8px 16px;
 }
+
 .edit-tools {
-    padding: 8px;
+    position: relative;
     border-radius: 33px;
     background-color: rgb(var(--edit-tools-background));
+}
+
+.edit-tool {
+    margin: 1px 5px;
+}
+
+.edit-tool .icon {
+    font-size: 20px;
 }
