@@ -9,6 +9,7 @@
     --text-dark: 0, 29, 53;
     --text-disabled: 218, 220, 224;
     --edit-tools-background: 236, 243, 250;
+    --edit-tools-color: 68, 71, 70;
 }
 
 /* Generic classes */
@@ -81,6 +82,26 @@ button:hover {
     transition: 0.3s ease;
 }
 
+.icon-button:disabled .icon {
+    color: rgb(var(--text-disabled));
+}
+
+.icon-button:disabled {
+    background-color: transparent;
+}
+
+.icon-button .text {
+    font-size: 14px;
+}
+
+.active-button {
+    background-color: #d3e3fd;
+}
+
+.active-button:hover {
+    background-color: #d3e3fd;
+}
+
 .center-row {
     display: flex;
     justify-content: center;
@@ -104,9 +125,15 @@ button:hover {
 
 /* Divider */
 .horizontal-divider {
-    width: 100%;
-    background-color: rgb(var(--text-disabled));
+    width: 80%;
     height: 1px;
+    background-color: rgb(var(--text-disabled));
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 80%;
+    background-color: rgb(var(--text-disabled));
 }
 
 /* Tooltip */

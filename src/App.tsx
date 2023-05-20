@@ -1,14 +1,26 @@
 import React from "react";
 import "./App.css";
 import "./Helper.css";
-import MainComponent from "./components/MainComponent";
-import { TitleProvider } from "./contexts/TitleContext";
+import CustomToolbar from "./components/CustomToolbar/CustomToolbar";
+import EditTools from "./components/EditTools/EditTools";
+import Editor from "./components/Editor/Editor";
+import Drawer from "./components/Drawer/Drawer";
+import { FormatSettingsProvider } from "./contexts/FormatSettingsContext";
 
 function App() {
     return (
-        <TitleProvider>
-            <MainComponent />
-        </TitleProvider>
+        <div className="container">
+            <CustomToolbar />
+            <div className="inner-container">
+                <FormatSettingsProvider>
+                    <div className="edit-tools-and-editor">
+                        <EditTools />
+                        <Editor />
+                    </div>
+                </FormatSettingsProvider>
+                <Drawer />
+            </div>
+        </div>
     );
 }
 

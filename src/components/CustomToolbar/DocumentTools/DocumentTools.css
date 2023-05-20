@@ -5,6 +5,7 @@
 
 .document-tools button {
     font-size: 14px;
+    font-weight: 400;
     color: rgb(var(--text));
     padding: 2px 7px;
 }

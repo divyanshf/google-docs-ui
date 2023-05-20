@@ -1,14 +1,18 @@
 import React from "react";
 
 interface ExpandProps {
-    icon: string;
-    iconSize?: number;
+    icon?: string;
+    text?: string;
 }
 
-const Expand = ({ icon }: ExpandProps) => {
+const Expand = ({ icon, text }: ExpandProps) => {
     return (
         <>
-            <span className="material-symbols-outlined icon">{icon}</span>
+            {icon ? (
+                <span className="material-symbols-outlined icon">{icon}</span>
+            ) : (
+                <span className="text">{text}</span>
+            )}
             <span className="material-symbols-outlined icon">
                 arrow_drop_down
             </span>

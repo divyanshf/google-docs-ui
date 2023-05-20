@@ -6,6 +6,8 @@ interface OptionProps extends PropsWithChildren {
     background?: string; // color
     className?: string;
     buttonClass?: string;
+    disabled?: boolean;
+    active?: boolean;
     onClick?: () => void;
 }
 
@@ -15,14 +17,19 @@ const OptionWrapper = ({
     buttonClass,
     className,
     children,
+    disabled,
+    active,
     onClick,
 }: OptionProps) => {
     return (
         <div className={`${className} tooltip-parent anchor-center`}>
             <button
                 onClick={onClick}
-                className={`tooltip icon-button ${buttonClass}`}
+                className={`tooltip icon-button ${buttonClass} ${
+                    active ? "active-button" : ""
+                }`}
                 data-tip={title}
+                disabled={disabled}
             >
                 {children}
             </button>

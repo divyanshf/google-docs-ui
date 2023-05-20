@@ -1,19 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DocumentTools.css";
 import Tools from "./Tools/Tools";
 import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
-import TitleContext from "../../../contexts/TitleContext";
+
+// Default title of the document
+const DEFAULT_TITLE = "Untitled document";
 
 // Types
 interface DocumentToolsProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 // Document Related Tools
 const DocumentTools = (props: DocumentToolsProps) => {
-    const { title, updateTitleValue } = useContext(TitleContext);
+    const [title, setTitle] = useState(DEFAULT_TITLE);
 
+    // Handle the changing input for document title
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-        updateTitleValue(e.target.value);
+        setTitle(e.target.value);
+
+    // Validate that the title does not remain empty
+    const validateTitleChange = () => {
+        if (!title) setTitle(DEFAULT_TITLE);
+    };
+
+    // Update the title of the tab
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
     return (
         <div {...props}>
@@ -31,6 +44,7 @@ const DocumentTools = (props: DocumentToolsProps) => {
                     <input
                         value={title}
                         onChange={handleTitleChange}
+                        onBlur={validateTitleChange}
                         className="document-title-input document-title-input-and-hidden"
                         data-tip="Rename"
                     />
