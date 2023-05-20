@@ -22,7 +22,16 @@ nav {
 }
 
 .share-icon {
+    display: flex;
+    align-items: center;
     background-color: rgb(var(--primary));
+}
+
+.share-button-big {
+    border-radius: 33px;
+    gap: 8px;
+    padding: 10px 16px;
+    color: rgb(var(--text-dark));
 }
 
 .share-icon .icon {

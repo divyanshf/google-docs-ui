@@ -5,9 +5,12 @@ import OptionWrapper from "../Options/OptionWrapper/OptionWrapper";
 import Generic from "../Options/Generic";
 import Profile from "../Options/Profile";
 import Expand from "../Options/Expand";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 // Main Toolbar
 const CustomToolbar = () => {
+    const isSmall = useMediaQuery("sm");
+
     return (
         <nav className="pt-8 pl-16 pr-16">
             <div style={{ display: "flex" }}>
@@ -52,9 +55,18 @@ const CustomToolbar = () => {
                     <OptionWrapper
                         title={"Private to only me"}
                         className="mr-8 center-row"
-                        buttonClass="share-icon"
+                        buttonClass={`share-icon ${
+                            !isSmall ? "share-button-big" : ""
+                        }`}
                     >
-                        <Generic icon={"person_add"} iconSize={20} />
+                        {isSmall ? (
+                            <Generic icon={"person_add"} iconSize={20} />
+                        ) : (
+                            <>
+                                <Generic icon="lock" iconSize={18} />
+                                <strong>Share</strong>
+                            </>
+                        )}
                     </OptionWrapper>
                     <OptionWrapper
                         title={"Profile"}
