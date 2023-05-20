@@ -5,6 +5,8 @@
 }
 
 body {
+    height: 100vh;
+    overflow: hidden;
     font-family: "Roboto", "sans-serif";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

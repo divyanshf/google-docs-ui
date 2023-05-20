@@ -9,8 +9,26 @@
     --text-disabled: 218, 220, 224;
 }
 
+/* Generic classes */
 .container {
-    overflow: auto;
+    height: 100vh;
+}
+
+.inner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-tools-and-editor {
+    width: 100%;
+}
+
+.editor-container {
+    height: 100%;
+    padding-bottom: 50px;
+    overflow: scroll;
 }
 
 html {

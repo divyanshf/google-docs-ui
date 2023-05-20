@@ -80,7 +80,6 @@ const CustomToolbar = () => {
                     </OptionWrapper>
                 </div>
             </div>
-            {/* Edit Related Tools */}
         </nav>
     );
 };
