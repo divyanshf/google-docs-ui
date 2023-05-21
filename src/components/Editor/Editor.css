@@ -1,13 +1,24 @@
 .editor-container {
     overflow: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .editor {
-    width: 794px;
-    height: 1123px;
+    /* width: 794px; */
+    /* height: 1123px; */
     background: white;
     border: 1px solid rgb(var(--text-disabled));
     margin: 20px;
+}
+
+.vertical-ruler {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
 }
