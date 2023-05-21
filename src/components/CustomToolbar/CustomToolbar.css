@@ -18,7 +18,7 @@ nav {
     background-size: contain;
 }
 
-.share-icon {
+.share-icon-button {
     display: flex;
     align-items: center;
     background-color: rgb(var(--primary));
@@ -31,12 +31,12 @@ nav {
     color: rgb(var(--text-dark));
 }
 
-.share-icon .icon {
+.share-icon-button .icon {
     font-size: 20px;
     color: rgb(var(--text-dark));
 }
 
-.share-icon:hover {
+.share-icon-button:hover {
     background-color: rgb(var(--primary-dark));
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }

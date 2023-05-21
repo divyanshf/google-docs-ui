@@ -31,13 +31,13 @@ const CustomToolbar = () => {
                 <div style={{ display: "flex" }}>
                     <OptionWrapper
                         title={"Last edit was 1 minute ago"}
-                        className="mr-8 center-row"
+                        className="mr-8"
                     >
                         <Generic icon={"history"} />
                     </OptionWrapper>
                     <OptionWrapper
                         title={"Open Comment History"}
-                        className="mr-8 center-row"
+                        className="mr-8"
                     >
                         <Generic icon={"comment"} />
                     </OptionWrapper>
@@ -45,15 +45,15 @@ const CustomToolbar = () => {
                         title={
                             "Join a call here or present this tab to the call"
                         }
-                        className="mr-8 center-row"
+                        className="mr-8"
                         buttonClass="expand-icon-button"
                     >
                         <Expand icon={"videocam"} />
                     </OptionWrapper>
                     <OptionWrapper
                         title={"Private to only me"}
-                        className="mr-8 center-row"
-                        buttonClass={`share-icon ${
+                        className="mr-8"
+                        buttonClass={`share-icon-button ${
                             !isSmall ? "share-button-big" : ""
                         }`}
                     >
@@ -69,7 +69,7 @@ const CustomToolbar = () => {
                     <OptionWrapper
                         title={"Profile"}
                         buttonClass="p-4"
-                        className="center-row ml-8"
+                        className="ml-8"
                     >
                         <Profile
                             image="/images/divyansh.jpg"

@@ -22,17 +22,19 @@ const OptionWrapper = ({
     onClick,
 }: OptionProps) => {
     return (
-        <div className={`${className} tooltip-parent anchor-center`}>
+        <div className={`option-wrapper ${className} tooltip-parent`}>
             <button
                 onClick={onClick}
-                className={`tooltip icon-button ${buttonClass} ${
+                className={`icon-button ${buttonClass} ${
                     active ? "active-button" : ""
                 }`}
-                data-tip={title}
                 disabled={disabled}
             >
                 {children}
             </button>
+            <span className="tooltip-wrapper">
+                <span className="tooltip">{title}</span>
+            </span>
         </div>
     );
 };

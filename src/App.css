@@ -68,6 +68,13 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.option-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .icon-button {
     padding: 8px;
     border-radius: 50%;
@@ -148,48 +155,30 @@ button:hover {
 
 /* Tooltip */
 .tooltip-parent {
-    position: relative;
-    display: inline-block;
+}
+.tooltip-wrapper {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
 }
 
-.tooltip::after {
-    content: attr(data-tip);
+.tooltip {
+    position: relative;
+    bottom: -35px;
+    white-space: nowrap;
+    font-size: 12px;
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
     padding: 4px 8px;
     border-radius: 4px;
-    white-space: nowrap;
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s ease;
-    font-size: 12px;
-    height: min-content;
-    position: absolute;
-    bottom: -20px;
-    z-index: 100;
 }
 
-.tooltip:hover::after {
+.tooltip-parent:hover .tooltip-wrapper {
     visibility: visible;
     opacity: 1;
-}
-
-.tooltip-parent:is(.anchor-center) .tooltip::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.tooltip-parent:is(.anchor-right) .tooltip::after {
-    left: 0;
-}
-
-.tooltip-parent:is(.anchor-left) .tooltip::after {
-    right: 0;
-}
-
-.tooltip-parent:is(.anchor-top) .tooltip::after {
-    top: -20px;
 }
 
 /* Others */
