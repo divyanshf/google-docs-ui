@@ -72,7 +72,7 @@ const CustomToolbar = () => {
                         className="center-row ml-8"
                     >
                         <Profile
-                            image="/images/divyansh.svg"
+                            image="/images/divyansh.jpg"
                             name={"Divyansh Falodiya"}
                         />
                     </OptionWrapper>
