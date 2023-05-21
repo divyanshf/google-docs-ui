@@ -27,8 +27,8 @@ const SectionC = () => {
             <div className="edit-tools-section">
                 <OptionWrapper
                     title="Decrease font size"
-                    className="edit-tool"
-                    buttonClass="edit-tool-button"
+                    className="edit-tool mr-8"
+                    buttonClass="edit-tool-button small-icon-button"
                     onClick={decreaseFontSize}
                 >
                     <Generic icon="remove" />
@@ -42,8 +42,8 @@ const SectionC = () => {
                 />
                 <OptionWrapper
                     title="Increase font size"
-                    className="edit-tool"
-                    buttonClass="edit-tool-button"
+                    className="edit-tool ml-8"
+                    buttonClass="edit-tool-button small-icon-button"
                     onClick={increaseFontSize}
                 >
                     <Generic icon="add" />

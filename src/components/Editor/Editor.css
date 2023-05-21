@@ -1,5 +1,8 @@
 .editor-container {
     overflow: auto;
+}
+
+.editor-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,8 +11,8 @@
 .editor {
     background: white;
     border: 1px solid rgb(var(--text-disabled));
-    margin: 20px;
     cursor: text;
+    margin: 20px;
 }
 
 .vertical-ruler {
