@@ -181,6 +181,18 @@ button:hover {
     opacity: 1;
 }
 
+.tooltip-parent:is(.anchor-right) .tooltip {
+    right: 25%;
+}
+
+.tooltip-parent:is(.anchor-left) .tooltip {
+    left: 50%;
+}
+
+.tooltip-parent:is(.anchor-top) .tooltip {
+    top: -35px;
+}
+
 /* Others */
 ::-webkit-scrollbar {
     width: 18px;

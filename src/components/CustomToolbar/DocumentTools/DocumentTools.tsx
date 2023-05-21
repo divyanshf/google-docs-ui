@@ -67,7 +67,6 @@ const DocumentTools = (props: DocumentToolsProps) => {
                     <OptionWrapper
                         title="See document status"
                         buttonClass="small-icon-button"
-                        className="anchor-right"
                     >
                         <Generic icon="cloud_done" iconSize={18} />
                     </OptionWrapper>

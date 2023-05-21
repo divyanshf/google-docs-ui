@@ -20,7 +20,11 @@ const Drawer = () => {
         <div className="drawer-container">
             <div className={`drawer p-8 ${!isOpen ? "closed" : "opened"}`}>
                 {otherProducts.map((product, idx) => (
-                    <OptionWrapper title={product.title} key={idx}>
+                    <OptionWrapper
+                        title={product.title}
+                        key={idx}
+                        className="anchor-right"
+                    >
                         <img
                             src={product.image}
                             alt="Calendar"
@@ -29,7 +33,7 @@ const Drawer = () => {
                     </OptionWrapper>
                 ))}
                 <div className="horizontal-divider" />
-                <OptionWrapper title={"Get Add-ons"}>
+                <OptionWrapper title={"Get Add-ons"} className="anchor-right">
                     <Generic icon="add" />
                 </OptionWrapper>
             </div>
