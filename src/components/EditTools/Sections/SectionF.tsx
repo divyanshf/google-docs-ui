@@ -21,7 +21,7 @@ const SectionF = () => {
                 >
                     <Generic icon="format_line_spacing" />
                 </OptionWrapper>
-                <div>
+                <div className="flex">
                     <OptionWrapper
                         title="Checklist"
                         className="edit-tool"
@@ -37,7 +37,7 @@ const SectionF = () => {
                         <Generic icon="arrow_drop_down" />
                     </OptionWrapper>
                 </div>
-                <div>
+                <div className="flex">
                     <OptionWrapper
                         title="Bulleted list"
                         className="edit-tool"
@@ -53,7 +53,7 @@ const SectionF = () => {
                         <Generic icon="arrow_drop_down" />
                     </OptionWrapper>
                 </div>
-                <div>
+                <div className="flex">
                     <OptionWrapper
                         title="Numbered list"
                         className="edit-tool"

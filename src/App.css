@@ -7,7 +7,7 @@
     --tool-surface: 230, 235, 237;
     --text: 51, 51, 51;
     --text-dark: 0, 29, 53;
-    --text-disabled: 218, 220, 224;
+    --text-disabled: 173, 177, 180;
     --edit-tools-background: 236, 243, 250;
     --edit-tools-color: 68, 71, 70;
 }
@@ -88,10 +88,12 @@ button:hover {
 
 .icon-button:disabled {
     background-color: transparent;
+    cursor: default;
 }
 
 .icon-button .text {
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .active-button {

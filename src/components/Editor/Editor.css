@@ -3,3 +3,11 @@
     display: flex;
     justify-content: center;
 }
+
+.editor {
+    width: 794px;
+    height: 1123px;
+    background: white;
+    border: 1px solid rgb(var(--text-disabled));
+    margin: 20px;
+}
