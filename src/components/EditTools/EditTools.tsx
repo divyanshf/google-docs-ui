@@ -24,7 +24,7 @@ const EditTools = () => {
     return (
         <div className="edit-tools-container">
             <div className="edit-tools-wrapper">
-                <div className="edit-tools">
+                <div className="edit-tools" style={{ overflow: "hidden" }}>
                     <SectionA
                         settings={settings}
                         handleSettingChange={handleSettingChange}
