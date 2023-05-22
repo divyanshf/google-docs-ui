@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
+import FormatSettingsContext from "../../../contexts/FormatSettingsContext";
 
 const SectionC = () => {
-    const [fontSize, setFontSize] = useState(11);
+    const { settings, updateSetting } = useContext(FormatSettingsContext);
+    const key = "font_size";
 
     // Handle the input for font size when given by typing
     const handleFontSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFontSize(Number(e.target.value));
+        updateSetting(key, Number(e.target.value));
     };
 
     // Validate the changed font size to be always positive
     const validateFontSize = () => {
-        setFontSize((prev) => Math.max(1, prev));
+        updateSetting(key, Math.max(1, settings[key]));
     };
 
     // Increase the font size by 1
-    const increaseFontSize = () => setFontSize((prev) => prev + 1);
+    const increaseFontSize = () => updateSetting(key, settings[key] + 1);
 
     // Decrease the font size by 1
     const decreaseFontSize = () =>
-        setFontSize((prev) => (prev > 1 ? prev - 1 : prev));
+        updateSetting(
+            key,
+            settings[key] > 1 ? settings[key] - 1 : settings[key]
+        );
 
     return (
         <div className="edit-tools-section-wrapper">
@@ -36,7 +41,7 @@ const SectionC = () => {
                 <input
                     type="number"
                     className="font-size-input"
-                    value={fontSize}
+                    value={settings[key]}
                     onChange={handleFontSizeChange}
                     onBlur={validateFontSize}
                 />

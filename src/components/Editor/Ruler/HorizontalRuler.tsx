@@ -6,7 +6,7 @@ interface HorizontalRulerProps {
     spread: number;
 }
 
-// Spread the inches over ruler
+// Spread the inches over horizontal ruler
 const HorizontalSpread = ({ width, spread }: HorizontalRulerProps) => {
     const inchDivisions = 8;
     const unit = width / (inchDivisions * spread);
@@ -15,9 +15,8 @@ const HorizontalSpread = ({ width, spread }: HorizontalRulerProps) => {
     return (
         <div style={{ position: "relative" }}>
             {Array.from(Array(nLines)).map((_, idx) => (
-                <>
+                <div key={idx}>
                     <div
-                        key={idx}
                         style={{
                             position: "absolute",
                             left: (idx + 1) * unit,
@@ -42,7 +41,7 @@ const HorizontalSpread = ({ width, spread }: HorizontalRulerProps) => {
                             {(idx + 1) / 8}
                         </span>
                     )}
-                </>
+                </div>
             ))}
         </div>
     );

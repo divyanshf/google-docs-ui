@@ -5,4 +5,9 @@ export interface FormatSettings {
     bold: boolean;
     italics: boolean;
     underline: boolean;
+    font_size: number;
+    font: string;
+    line_height: number;
+    vertical_margin: number;
+    horizontal_margin: number;
 }

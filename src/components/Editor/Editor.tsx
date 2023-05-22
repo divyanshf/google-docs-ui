@@ -1,7 +1,9 @@
 import React from "react";
 import "./Editor.css";
 import HorizontalRuler from "./Ruler/HorizontalRuler";
+import EditorCanvas from "./EditorCanvas";
 
+// Editing space
 const Editor = () => {
     // Considering A4 size values
     const editorSizeInches = { width: 8.3, height: 11.7 };
@@ -15,14 +17,9 @@ const Editor = () => {
             />
             <div className="vertical-ruler" />
             <div className="editor-wrapper">
-                <div
-                    className="editor"
-                    style={{
-                        width: editorWidthInPixel,
-                        height:
-                            (editorWidthInPixel * editorSizeInches.height) /
-                            editorSizeInches.width,
-                    }}
+                <EditorCanvas
+                    sizesInch={editorSizeInches}
+                    widthPixel={editorWidthInPixel}
                 />
             </div>
         </div>

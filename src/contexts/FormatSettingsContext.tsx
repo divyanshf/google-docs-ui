@@ -8,6 +8,11 @@ const baseSettings = {
     bold: true,
     italics: false,
     underline: false,
+    font_size: 11,
+    font: "Arial",
+    line_height: 3,
+    vertical_margin: 20,
+    horizontal_margin: 20,
 } as FormatSettings;
 
 // Format Settings Context
