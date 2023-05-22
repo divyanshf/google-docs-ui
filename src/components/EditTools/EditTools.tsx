@@ -72,10 +72,11 @@ const EditTools = ({ isOpen, toggleVisibility }: EditToolsProps) => {
                 i
             ] as HTMLDivElement;
             if (child.classList.contains("more-option")) continue;
-            child.style.display = "none";
             flag = true;
+            child.style.display = "none";
         }
 
+        // Set the overflow state of container
         setOverflow(flag);
     });
 
