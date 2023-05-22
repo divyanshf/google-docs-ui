@@ -5,10 +5,10 @@ import { FormatSettings } from "../types/formatSettings";
 const baseSettings = {
     spelling_and_grammar_check: false,
     paint_format: false,
-    bold: true,
-    italics: false,
+    bold: false,
+    italics: true,
     underline: false,
-    font_size: 11,
+    font_size: 13,
     font: "Arial",
     line_height: 3,
     vertical_margin: 20,

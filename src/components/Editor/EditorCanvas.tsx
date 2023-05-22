@@ -14,7 +14,9 @@ interface EditorCanvasProps {
 const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
     const ref = useRef<HTMLCanvasElement>(null);
     const { settings } = useContext(FormatSettingsContext);
-    const [content, setContent] = useState<Array<string>>([""]); // Storing content in the form of lines
+    const [content, setContent] = useState<Array<string>>([
+        "Click on the editor and start typing",
+    ]); // Storing content in the form of lines
     const [isEditorActive, setIsEditorActive] = useState(false);
 
     // Handle focus and blur on the canvas editor
@@ -34,7 +36,7 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
         setIsEditorActive(flag);
     };
 
-    // Handle when user presses keys
+    // Handle when user presses character keys
     const handleKeyPress = (e: KeyboardEvent) => {
         e.preventDefault();
         // Create new line
@@ -54,7 +56,9 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
         }
     };
 
-    // Remove last character
+    // Remove last character when backspace is pressed
+    // TODO
+    // Buggy right now - Fires multiple times
     const handleBackspace = (e: KeyboardEvent) => {
         if (e.key === "Backspace") {
             setContent((prev) => {
@@ -74,16 +78,21 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
 
     // Draw the canvas
     const draw = () => {
+        // Get font related format settings
         const fontStyle = settings["italics"] ? "italic" : "normal";
         const fontWeight = settings["bold"] ? "bold" : "normal";
 
+        // Canvas context
         const ctx = ref.current?.getContext("2d");
         if (!ctx) return;
 
+        // Font setting for canvas
         ctx.font = `${fontWeight} ${fontStyle} ${settings.font_size}px ${settings.font}`;
 
+        // Clear the canvas before drawing
         ctx.clearRect(0, 0, ref.current?.width ?? 0, ref.current?.height ?? 0);
 
+        // Paint text content
         let startX = settings["horizontal_margin"],
             startY = settings["vertical_margin"];
 
@@ -92,23 +101,21 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
             ctx.fillText(line, startX, startY);
         });
 
+        // Paint cursor if the editor is active
         if (isEditorActive) {
+            const height = settings["font_size"];
             const cursorOffsetX = 3;
-            const cursorOffsetY = 5;
             const endX =
                 ctx.measureText(content[content.length - 1]).width + startX;
             const endY = startY;
             ctx.beginPath();
-            ctx.moveTo(endX + cursorOffsetX, endY + cursorOffsetY);
-            ctx.lineTo(
-                endX + cursorOffsetX,
-                endY - (settings["font_size"] - cursorOffsetY)
-            );
+            ctx.moveTo(endX + cursorOffsetX, endY);
+            ctx.lineTo(endX + cursorOffsetX, endY - height);
             ctx.stroke();
         }
     };
 
-    // Monitor canvas activeness events
+    // Check if the editor is active or not
     useEffect(() => {
         if (ref.current) {
             ref.current.width = widthPixel;
@@ -119,20 +126,20 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
         return () => document.removeEventListener("mousedown", handleClick);
     }, []);
 
-    // Monitor keypresses
+    // Check for text input when the editor is active
     useEffect(() => {
+        draw();
         if (isEditorActive && ref.current) {
             document.addEventListener("keypress", handleKeyPress);
             document.addEventListener("keydown", handleBackspace);
         }
-        draw();
         return () => {
             document.removeEventListener("keypress", handleKeyPress);
-            document.addEventListener("keydown", handleBackspace);
+            document.removeEventListener("keydown", handleBackspace);
         };
     }, [isEditorActive]);
 
-    // Create context and update when content or format settings
+    // Update the canvas when content or format settings
     useEffect(() => {
         draw();
     }, [settings, content]);
