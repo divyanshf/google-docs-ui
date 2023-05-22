@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Drawer.css";
 import OptionWrapper from "../Options/OptionWrapper/OptionWrapper";
 import Generic from "../Options/Generic";
 
-const Drawer = () => {
-    const [isOpen, setIsOpen] = useState(true);
+// Types
+interface DrawerProps {
+    isOpen: boolean;
+    toggleVisibility: () => void;
+}
 
+// The sidebar with links to other google products
+const Drawer = ({ isOpen, toggleVisibility }: DrawerProps) => {
     const otherProducts = [
         { image: "/images/transparent-calendar.png", title: "Calendar" },
         { image: "/images/transparent-keep.png", title: "Keep" },
@@ -13,8 +18,6 @@ const Drawer = () => {
         { image: "/images/transparent-contacts.png", title: "Contacts" },
         { image: "/images/transparent-maps.png", title: "Maps" },
     ];
-
-    const toggleDrawer = () => setIsOpen((prev) => !prev);
 
     return (
         <div className="drawer-container">
@@ -40,7 +43,7 @@ const Drawer = () => {
             <div className={`drawer-opener ${!isOpen ? "closed" : "opened"}`}>
                 <OptionWrapper
                     title={isOpen ? "Hide side panel" : "Show side panel"}
-                    onClick={toggleDrawer}
+                    onClick={toggleVisibility}
                     className="anchor-top anchor-right"
                 >
                     <Generic icon="chevron_right" />

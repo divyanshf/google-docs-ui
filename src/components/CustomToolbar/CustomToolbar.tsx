@@ -7,9 +7,16 @@ import Profile from "../Options/Profile";
 import Expand from "../Options/Expand";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
+// Types
+interface CustomToolbarProps {
+    isOpen: boolean;
+}
+
 // Main Toolbar
-const CustomToolbar = () => {
+const CustomToolbar = ({ isOpen }: CustomToolbarProps) => {
     const isSmall = useMediaQuery("sm");
+
+    if (!isOpen) return null;
 
     return (
         <nav className="pt-8 pl-16 pr-16">

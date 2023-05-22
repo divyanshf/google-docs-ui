@@ -12,8 +12,14 @@ import SectionG from "./Sections/SectionG";
 import OptionWrapper from "../Options/OptionWrapper/OptionWrapper";
 import Generic from "../Options/Generic";
 
+// Types
+interface EditToolsProps {
+    isOpen: boolean;
+    toggleVisibility: () => void;
+}
+
 // All the tools related to editing the document
-const EditTools = () => {
+const EditTools = ({ isOpen, toggleVisibility }: EditToolsProps) => {
     const { settings, updateSetting } = useContext(FormatSettingsContext);
 
     // Change the settings for a particular key
@@ -48,11 +54,14 @@ const EditTools = () => {
                     <SectionG />
                     <div className="vertical-divider m-8" />
                     <OptionWrapper
-                        title="Hide the menus"
+                        title={isOpen ? "Hide the menus" : "Show the menus"}
                         className="edit-tool"
                         buttonClass="edit-tool-button"
+                        onClick={toggleVisibility}
                     >
-                        <Generic icon="expand_less" />
+                        <Generic
+                            icon={isOpen ? "expand_less" : "expand_more"}
+                        />
                     </OptionWrapper>
                 </div>
             </div>
