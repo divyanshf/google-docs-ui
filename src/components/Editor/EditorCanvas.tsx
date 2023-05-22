@@ -14,9 +14,9 @@ interface EditorCanvasProps {
 const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
     const ref = useRef<HTMLCanvasElement>(null);
     const { settings } = useContext(FormatSettingsContext);
-    const [content, setContent] = useState<Array<string>>([
-        "Click on the editor and start typing",
-    ]); // Storing content in the form of lines
+    const [content, setContent] = useState<string>(
+        "Click on the editor and start typing"
+    );
     const [isEditorActive, setIsEditorActive] = useState(false);
 
     // Handle focus and blur on the canvas editor
@@ -41,18 +41,11 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
         e.preventDefault();
         // Create new line
         if (e.key === "Enter") {
-            setContent((prev) => [...prev, ""]);
+            setContent((prev) => prev + "\n");
         }
         // Enter new character
         else {
-            setContent((prev) => {
-                const texts = [...prev];
-                const nLines = texts.length;
-                let lastLine = texts[nLines - 1];
-                lastLine += e.key;
-                texts[nLines - 1] = lastLine;
-                return texts;
-            });
+            setContent((prev) => prev + e.key);
         }
     };
 
@@ -61,18 +54,9 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
     // Buggy right now - Fires multiple times
     const handleBackspace = (e: KeyboardEvent) => {
         if (e.key === "Backspace") {
-            setContent((prev) => {
-                const texts = [...prev];
-                const nLines = texts.length;
-                let lastLine = texts[nLines - 1];
-                if (nLines === 1 && lastLine.length === 0) return texts;
-                if (lastLine.length > 0) {
-                    lastLine = lastLine.slice(0, lastLine.length - 1);
-                    texts[nLines - 1] = lastLine;
-                    return texts;
-                }
-                return texts.slice(0, nLines - 1);
-            });
+            setContent((prev) =>
+                prev.length === 0 ? "" : prev.slice(0, prev.length - 1)
+            );
         }
     };
 
@@ -94,23 +78,38 @@ const EditorCanvas = ({ widthPixel, sizesInch }: EditorCanvasProps) => {
 
         // Paint text content
         let startX = settings["horizontal_margin"],
-            startY = settings["vertical_margin"];
+            startY = settings["vertical_margin"] + settings["font_size"];
 
-        content.forEach((line) => {
-            startY += settings["line_height"] + settings["font_size"];
-            ctx.fillText(line, startX, startY);
+        let currentX = startX,
+            currentY = startY;
+
+        let between_line_space =
+            settings["line_height"] + settings["font_size"];
+
+        content.split("").forEach((char) => {
+            if (char === "\n") {
+                currentX = startX;
+                currentY = currentY + between_line_space;
+            } else {
+                if (
+                    currentX + ctx.measureText(char).width >
+                    (ref.current?.width ?? 0) - settings["horizontal_margin"]
+                ) {
+                    currentX = startX;
+                    currentY += between_line_space;
+                }
+                ctx.fillText(char, currentX, currentY);
+                currentX += ctx.measureText(char).width;
+            }
         });
 
         // Paint cursor if the editor is active
         if (isEditorActive) {
             const height = settings["font_size"];
             const cursorOffsetX = 3;
-            const endX =
-                ctx.measureText(content[content.length - 1]).width + startX;
-            const endY = startY;
             ctx.beginPath();
-            ctx.moveTo(endX + cursorOffsetX, endY);
-            ctx.lineTo(endX + cursorOffsetX, endY - height);
+            ctx.moveTo(currentX + cursorOffsetX, currentY);
+            ctx.lineTo(currentX + cursorOffsetX, currentY - height);
             ctx.stroke();
         }
     };
