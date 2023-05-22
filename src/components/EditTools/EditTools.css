@@ -4,14 +4,21 @@
 }
 
 .edit-tools-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 33px;
     background-color: rgb(var(--edit-tools-background));
     padding: 5px 8px;
     height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 25px;
+}
+
+.edit-tools-section-wrapper {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid grey; */
+    height: 100%;
 }
 
 .edit-tools {
@@ -51,10 +58,6 @@
     gap: 2px;
 }
 
-.edit-tools-section-wrapper {
-    display: inline-block;
-}
-
 .edit-tools-section {
     display: flex;
     align-items: center;
@@ -71,6 +74,11 @@
     border-radius: 4px;
     outline: none;
     border: 1px solid rgb(var(--text-dark));
+}
+
+.more-option {
+    /* position: sticky;
+    right: 0; */
 }
 
 /* Removing default increase and decrease buttons on input with type number */

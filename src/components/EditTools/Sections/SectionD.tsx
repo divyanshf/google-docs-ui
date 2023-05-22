@@ -3,16 +3,23 @@ import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
 import { SectionProps } from "./types";
 
-const SectionD = ({ settings, handleSettingChange }: SectionProps) => {
+const SectionD = ({
+    settings,
+    handleSettingChange,
+    ...props
+}: SectionProps) => {
     return (
-        <div className="edit-tools-section-wrapper">
+        <div {...props}>
+            <div className="vertical-divider m-8" />
             <div className="edit-tools-section">
                 <OptionWrapper
                     title="Bold"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    active={settings["bold"]}
-                    onClick={() => handleSettingChange("bold")}
+                    active={settings ? settings["bold"] : false}
+                    onClick={() =>
+                        handleSettingChange && handleSettingChange("bold")
+                    }
                 >
                     <Generic icon="format_bold" />
                 </OptionWrapper>
@@ -20,8 +27,10 @@ const SectionD = ({ settings, handleSettingChange }: SectionProps) => {
                     title="Italics"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    active={settings["italics"]}
-                    onClick={() => handleSettingChange("italics")}
+                    active={settings ? settings["italics"] : false}
+                    onClick={() =>
+                        handleSettingChange && handleSettingChange("italics")
+                    }
                 >
                     <Generic icon="format_italic" />
                 </OptionWrapper>
@@ -29,8 +38,10 @@ const SectionD = ({ settings, handleSettingChange }: SectionProps) => {
                     title="Underline"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    active={settings["underline"]}
-                    onClick={() => handleSettingChange("underline")}
+                    active={settings ? settings["underline"] : false}
+                    onClick={() =>
+                        handleSettingChange && handleSettingChange("underline")
+                    }
                 >
                     <Generic icon="format_underlined" />
                 </OptionWrapper>

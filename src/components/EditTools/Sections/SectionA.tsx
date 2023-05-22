@@ -4,9 +4,13 @@ import Generic from "../../Options/Generic";
 import Expand from "../../Options/Expand";
 import { SectionProps } from "./types";
 
-const SectionA = ({ settings, handleSettingChange }: SectionProps) => {
+const SectionA = ({
+    settings,
+    handleSettingChange,
+    ...props
+}: SectionProps) => {
     return (
-        <div className="edit-tools-section-wrapper">
+        <div {...props}>
             <div className="edit-tools-section">
                 <OptionWrapper
                     title="Undo"
@@ -33,8 +37,13 @@ const SectionA = ({ settings, handleSettingChange }: SectionProps) => {
                     title="Spelling and grammar check"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    active={settings["spelling_and_grammar_check"]}
+                    active={
+                        settings
+                            ? settings["spelling_and_grammar_check"]
+                            : false
+                    }
                     onClick={() =>
+                        handleSettingChange &&
                         handleSettingChange("spelling_and_grammar_check")
                     }
                 >
@@ -44,8 +53,11 @@ const SectionA = ({ settings, handleSettingChange }: SectionProps) => {
                     title="Paint format"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    active={settings["paint_format"]}
-                    onClick={() => handleSettingChange("paint_format")}
+                    active={settings ? settings["paint_format"] : false}
+                    onClick={() =>
+                        handleSettingChange &&
+                        handleSettingChange("paint_format")
+                    }
                 >
                     <Generic icon="imagesearch_roller" iconSize={18} />
                 </OptionWrapper>

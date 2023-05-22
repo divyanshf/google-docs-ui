@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Expand from "../../Options/Expand";
 import FormatSettingsContext from "../../../contexts/FormatSettingsContext";
+import { SectionProps } from "./types";
 
-const SectionB = () => {
+const SectionB = ({ ...props }: SectionProps) => {
     const { settings } = useContext(FormatSettingsContext);
 
     return (
-        <div className="edit-tools-section-wrapper">
+        <div {...props}>
+            <div className="vertical-divider m-8" />
             <div className="edit-tools-section">
                 <OptionWrapper
                     title="Styles"

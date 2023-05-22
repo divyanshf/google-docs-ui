@@ -3,36 +3,34 @@ import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
 import { SectionProps } from "./types";
 
-const SectionE = ({ ...props }: SectionProps) => {
+const SectionH = ({ ...props }: SectionProps) => {
     return (
         <div {...props}>
-            <div className="vertical-divider m-8" />
             <div className="edit-tools-section">
                 <OptionWrapper
-                    title="Insert link"
+                    title="Decrease indent"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
                 >
-                    <Generic icon="link" />
+                    <Generic icon="format_indent_decrease" />
                 </OptionWrapper>
                 <OptionWrapper
-                    title="Add comment"
+                    title="Increase indent"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
-                    disabled
                 >
-                    <Generic icon="add_comment" />
+                    <Generic icon="format_indent_increase" />
                 </OptionWrapper>
                 <OptionWrapper
-                    title="Insert image"
+                    title="Clear formatting"
                     className="edit-tool"
                     buttonClass="edit-tool-button"
                 >
-                    <Generic icon="image" />
+                    <Generic icon="format_clear" />
                 </OptionWrapper>
             </div>
         </div>
     );
 };
 
-export default SectionE;
+export default SectionH;

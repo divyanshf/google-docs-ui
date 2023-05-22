@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import OptionWrapper from "../../Options/OptionWrapper/OptionWrapper";
 import Generic from "../../Options/Generic";
 import FormatSettingsContext from "../../../contexts/FormatSettingsContext";
+import { SectionProps } from "./types";
 
-const SectionC = () => {
+const SectionC = ({ ...props }: SectionProps) => {
     const { settings, updateSetting } = useContext(FormatSettingsContext);
     const key = "font_size";
 
@@ -28,7 +29,8 @@ const SectionC = () => {
         );
 
     return (
-        <div className="edit-tools-section-wrapper">
+        <div {...props}>
+            <div className="vertical-divider m-8" />
             <div className="edit-tools-section">
                 <OptionWrapper
                     title="Decrease font size"
