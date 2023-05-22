@@ -17,6 +17,7 @@
 }
 
 .document-title-hidden {
+    white-space: pre;
     visibility: hidden;
 }
 
