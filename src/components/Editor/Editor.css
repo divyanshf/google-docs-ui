@@ -1,4 +1,5 @@
 .editor-container {
+    position: relative;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -6,10 +7,10 @@
 }
 
 #editor {
+    margin: 20px;
     background: white;
     border: 1px solid rgb(var(--text-disabled));
     cursor: text;
-    margin: 20px;
 }
 
 .vertical-ruler {

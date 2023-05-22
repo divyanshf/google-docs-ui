@@ -15,13 +15,10 @@ const Editor = () => {
                 width={editorWidthInPixel}
                 spread={editorSizeInches.width}
             />
-            <div className="vertical-ruler" />
-            <div className="editor-wrapper">
-                <EditorCanvas
-                    sizesInch={editorSizeInches}
-                    widthPixel={editorWidthInPixel}
-                />
-            </div>
+            <EditorCanvas
+                sizesInch={editorSizeInches}
+                widthPixel={editorWidthInPixel}
+            />
         </div>
     );
 };
